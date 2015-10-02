@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Local News and Weather</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="/java/themes/greenTheme.min.css" />
+  	<link rel="stylesheet" href="/java/themes/jquery.mobile.icons.min.css" />
+  	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" /> 
+
+  	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="/java/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8kb9yqovVmnS3uXqZnYEgr0jGC6VX1sY">
+    </script>
+    <script src="/java/rss.js"></script>
+    <script src="/java/states.js"></script>
+    <script src="/java/functions.js"></script>
+</head>
+<body>
+
+<div data-role="page" id="page1" data-theme="d">
+	<div data-role="header">
+		<h1>Local News and Weather</h1>
+	</div>
+	<div data-role="main" class="ui-content">
+		<input type="submit" id="geolocate" value="Get local news"/>
+		<br>
+		<div data-role="collapsible-set">
+			<div data-role="collapsible" id="first">
+			<h1>search by city/state...</h1>
+				<input name="city" type="text" id="city" placeholder="enter city"/>
+				<div style="color:red;" id="cityVal"></div>
+				<select id="state" name="states">
+					<option style="display:none;" value="" selected>select state...</option>
+				</select>
+				<div style="color:red;" id="stateVal"></div>
+				<input type="submit" id="submit_city" value="submit"/>
+				
+			</div>
+			<div data-role="collapsible" id="second">
+			<h1>search by zip code...</h1>
+				<form id="zipp">
+					<input name="zip" type="search" id="zip" placeholder="enter zip code"/>
+				</form>
+				<div style="color:red;" id="zipVal"></div>
+			</div>
+		</div>
+		<br>
+		<select id="past_searches" name="past_searches">
+		    <option style="display:none;" value="" selected>previous searches...</option>
+		</select>
+	</div>
+	<div data-role="footer">
+		<h2>CS76</h2>
+	</div>
+</div>
+
+<div data-role="page" id="page2" data-theme="d">
+	<div data-role="header">
+		<div style="text-align:center;" id="city_state"></div>
+	</div>
+	<div data-role="main" class="ui-content">
+		<div id="weather"></div>
+		<br>
+		<div id="news_stories"></div>
+	</div>
+	<div data-role="footer">
+		<h5><a id="back" href="#">back to search</a></h5>
+	</div>
+</div>
+</body>
+</html>
